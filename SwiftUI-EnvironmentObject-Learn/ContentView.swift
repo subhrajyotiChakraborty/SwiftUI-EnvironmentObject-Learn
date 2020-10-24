@@ -8,9 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    let flames = Flames()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        TabView {
+            FlameTabView()
+                .tabItem {
+                    Image(systemName: "flame")
+                    Text("Flam")
+                }
+                .environmentObject(flames)
+            
+            Text("Second Tab")
+                .tabItem {
+                    Image(systemName: "bolt")
+                    Text("Bolt")
+                }
+            
+            LeafTabView()
+                .tabItem {
+                    Image(systemName: "leaf.arrow.circlepath")
+                    Text("Leaf")
+                }
+                .environmentObject(flames)
+        }
     }
 }
 
